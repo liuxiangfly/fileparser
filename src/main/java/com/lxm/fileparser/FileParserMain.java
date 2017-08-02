@@ -16,7 +16,7 @@ import com.lxm.fileparser.decoder.TextRowDecoder;
 public class FileParserMain {
 
 	public static void main(String[] args) {
-		File file = new File("D:/javatest.txt");
+		File file = new File("D:/data/javatest.txt");
 		TextRowDecoder decoder = new TextRowDecoder(4, (byte) ',');
 		FileReader<byte[][]> reader = new FileReader<>(decoder, file);
 		Iterator<List<byte[][]>> it = reader.iterator();
