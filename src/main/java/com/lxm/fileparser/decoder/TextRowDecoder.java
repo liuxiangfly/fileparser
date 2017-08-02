@@ -28,11 +28,12 @@ public class TextRowDecoder implements Decoder<byte[][]> {
 			if (b == LF) { // reached line feed so parse line
 				int lineEndPos = buffer.position();
 				// set positions for one row duplication
-				if (lineEndPos >= buffer.limit()) {
-					buffer.position(lineStartPos).limit(lineEndPos);
-				} else {
-					buffer.position(lineStartPos).limit(lineEndPos + 1);
-				}
+				buffer.position(lineStartPos).limit(lineEndPos);
+//				if (lineEndPos >= buffer.limit()) {
+//					buffer.position(lineStartPos).limit(lineEndPos);
+//				} else {
+//					buffer.position(lineStartPos).limit(lineEndPos + 1);
+//				}
 				byte[][] entry = parseRow(buffer.duplicate());
 				if (entry != null) {
 					// reset main buffer
